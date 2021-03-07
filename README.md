@@ -3,7 +3,7 @@ Semi Active suspension Controller simulation in half car model
 
 1. half car model(해당 모델을 선정한 이유)
 
-차량 동역학에서 서스펜션 컨트롤러의 성능을 검증하기 위해 자주 사용되는 기존의 2자유도 모델(quater car model)은 하나의 서스펜션을 검증하기위해 사용된다. 4자유도 모델(half car model)은 기존의 2자유도 모델을 확장하여 4자유도(two wheels)를 구성하며 그에 따라 4개의 미분 방정식을 필요로 한다. 확장 됨에 따라 검증할 수 있는 요소도 추가되었다. 2자유도 모델의 경우 wheel의 변위와 sprun mass의 변위만을 해석할 수 있었지만 4자유도에서는 기존의 항목에서 sprung mass(body)의 pitch angle과 추가된 wheel의 변위에 대한 해석이 가능하다. 기존의 2자유도 모델에 비해 다양하게 해석 할 수 있다고 생각하여 half car model을 선정하여 controller의 성능을 검증하기로 했다.
+차량 동역학에서 서스펜션 컨트롤러의 성능을 검증하기 위해 자주 사용되는 기존의 2자유도 모델(quater car model)은 하나의 서스펜션을 검증하기위해 사용된다. 4자유도 모델(half car model)은 기존의 2자유도 모델을 확장하여 4자유도(two wheels)를 구성하며 그에 따라 4개의 미분 방정식을 필요로 한다. 확장 됨에 따라 검증할 수 있는 요소도 추가되었다. 2자유도 모델의 경우 wheel의 변위와 sprung mass의 변위만을 해석할 수 있었지만 4자유도에서는 기존의 항목에서 sprung mass(body)의 pitch angle과 추가된 wheel의 변위에 대한 해석이 가능하다. 기존의 2자유도 모델에 비해 다양하게 해석 할 수 있다고 생각하여 half car model을 선정하여 controller의 성능을 검증하기로 했다.
 
 ![half_model](https://user-images.githubusercontent.com/79674592/110109504-e73ba180-7df0-11eb-8527-68f398297bbd.jpg)
 
@@ -32,7 +32,7 @@ sprung mass에서 2개의 방정식을 도출 할 수 있는데 하나는 수직
 
 ![skyhook_eq](https://user-images.githubusercontent.com/79674592/110232002-3ce18c80-7f5e-11eb-8cc6-28898d28722c.PNG)
 
-이 컨트롤 전략은 sprung mass의 속도(수직),그리고 서스펜션과의 상대속도에 따라 댐핑계수를 변화시키는 것이다. Cmax와 Cmin은 각각 댐핑계수의 최대,최소이다. sprung mass의 절대속도와 서스펜션과의 상대속도가 부호가 같다면 Cmax에 비례하는 감쇠력을 요구하는 것을 의미한다. 그러므로 최대 댐핑계수가 적용되야하고, 그렇지 않은 상황(차체속도와 서스펜션과의 상대속도의 부호가 서로 반대 일때)에서는 비활성화된다.
+이 컨트롤 전략은 sprung mass의 속도(수직),그리고 unsprung mass와의 상대속도에 따라 댐핑계수를 변화시키는 것이다. Cmax와 Cmin은 각각 댐핑계수의 최대,최소이다. unsprung mass에 대한 sprung mass의 속도가 양수라면 Cmax에 비례하는 감쇠력을 요구하는 것을 의미한다. 그러므로 최대 댐핑계수가 적용되야하고, 그렇지 않은 상황(unsprung mass에 대한 sprung mass의 속도가 음수)에서는 비활성화된다.
 
 - Ground hook Controll logic
 
