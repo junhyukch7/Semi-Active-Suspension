@@ -10,6 +10,7 @@ Semi Active suspension Controller simulation in half car model
 2. equilibrium of force(방정식)
 
 방정식의 스프링상수(k)와 댐퍼 상수(c)는 다음과 같이 정의할 수 있다.
+
 ![상수](https://user-images.githubusercontent.com/79674592/110110283-ee16e400-7df1-11eb-91d1-d36bea8d730a.PNG)
 
 시스템의 4개의 미분 방정식은 두개의 자유도(sprung mass,wheels)에서 도출 할 수 있다. sprung mass에 해당하는 미분방정식은 전륜과 후륜의 서스펜션과 sprung mass의 영향을 받는다. sprung mass의 자유물체도는 아래와 같다.
