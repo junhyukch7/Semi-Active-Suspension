@@ -15,7 +15,7 @@ Semi Active suspension Controller simulation in half car model
 
 시스템의 4개의 미분 방정식은 두개의 자유도(sprung mass,wheels)에서 도출 할 수 있다. sprung mass에 해당하는 미분방정식은 전륜과 후륜의 서스펜션과 sprung mass의 영향을 받는다. sprung mass의 자유물체도는 아래와 같다.
 <img src="https://github.com/junhyukch7/Semi-Active-Suspension/blob/master/image2/2.jpg" width="60%">
-![캡처](https://user-images.githubusercontent.com/79674592/110780347-f2d31080-82a7-11eb-870f-555dbfe8fea6.PNG)
+<img src="https://github.com/junhyukch7/Semi-Active-Suspension/blob/master/image2/lever.png" width="30%">
 
 sprung mass에서 2개의 방정식을 도출 할 수 있는데 하나는 수직방향 힘의 해석이고 다른 하나는 모멘트의 해석이다. 먼저 힘의 해석을 보면 위에서 구한 상수값의 분모를 소거시켜주기위해 스프링상수의 경우 수직변위의 차를 곱해주고 뎀퍼상수의 경우 상대속도의 차이를 곱해준다. 이 때 질량 중심점과 휠간의 거리에 의해 발생하는 변위는 전륜의 경우(+), 후륜의 경우(-)를 띄는데(좌변 이항시) 이는 요철을 만났을 때 전륜의 경우 힘이 z방향으로 가해질 것이고 힘의 평형의 법칙에 따라 후륜의 경우 z반대 방향으로 작용하기 때문에 lf(theta)와 lr(theta)의 방향은 반대가 된다. 
 두번 째는 모멘트(토크)에 관한 해석이다. 모멘트의 경우 힘과 거리의 곱으로 표현 할 수 있기 때문에 위와 같이 나타낼 수 있다. theta의 경우 아주 작은 크기이므로 sin(theta)를 theta로 근사화 한다.
@@ -30,25 +30,20 @@ sprung mass에서 2개의 방정식을 도출 할 수 있는데 하나는 수직
 
 - Skyhook Controll logic
 
-<img src="https://github.com/junhyukch7/Semi-Active-Suspension/blob/master/image2/4.png" width="30%">
+<img src="https://github.com/junhyukch7/Semi-Active-Suspension/blob/master/image2/4.png" width="30%"> <img src="https://github.com/junhyukch7/Semi-Active-Suspension/blob/master/image2/skyhook%20logic.png" width="30%">
 
 스카이 훅은 sprung mass와 unsprung mass사이의 semi active damper를 설치하여 제어 할 수 있다. 스카이 훅의 전략은 댐핑 계수(damping coefficient)를 높게 또는 낮게 스위칭하여 sprung mass의 진동을 제어하는 것이다. 
-
-![skyhook_eq](https://user-images.githubusercontent.com/79674592/110232002-3ce18c80-7f5e-11eb-8cc6-28898d28722c.PNG)
-
 이 컨트롤 전략은 sprung mass의 속도(수직),그리고 unsprung mass와의 상대속도에 따라 댐핑계수를 변화시키는 것이다. Cmax와 Cmin은 각각 댐핑계수의 최대,최소이다. unsprung mass에 대한 sprung mass의 속도가 양수라면 Cmax에 비례하는 감쇠력을 요구하는 것을 의미한다. 그러므로 최대 댐핑계수가 적용되야하고, 그렇지 않은 상황(unsprung mass에 대한 sprung mass의 속도가 음수)에서는 비활성화된다.
 
 - Ground hook Controll logic
 
-<img src="https://github.com/junhyukch7/Semi-Active-Suspension/blob/master/image2/5.png" width="30%">
+<img src="https://github.com/junhyukch7/Semi-Active-Suspension/blob/master/image2/5.png" width="35%"> <img src="https://github.com/junhyukch7/Semi-Active-Suspension/blob/master/image2/groundhook%20logic.png" width="35%">
 
-그라운드 훅의 컨트롤 전략은 스카이 훅과 매우 유사한데 시스템 구성도에서 볼 수 있듯이 기존의 skyhook의 sprung mass에 달려 있던 댐핑을 제거하고 unsprung mass에 추가한 것이다. 로직은 아래와 아래와 같다.
-
-![gh_logic](https://user-images.githubusercontent.com/79674592/110232548-a1521b00-7f61-11eb-8f6d-ac5682974472.PNG)
+그라운드 훅의 컨트롤 전략은 스카이 훅과 매우 유사한데 시스템 구성도에서 볼 수 있듯이 기존의 skyhook의 sprung mass에 달려 있던 댐핑을 제거하고 unsprung mass에 추가한 것이다. 
 
 - Hybrid hook Controll logic
 
-![hy](https://user-images.githubusercontent.com/79674592/110232592-f68e2c80-7f61-11eb-8afb-e185b809fe65.PNG)
+<img src="https://github.com/junhyukch7/Semi-Active-Suspension/blob/master/image2/hybird%20hook%20plot.png" width="35%">
 
 하이브리드 훅은 이름에서도 알 수 있듯이 스카이 훅과 그라운드 훅의 전략을 모두 이용한 것이다. 
 
