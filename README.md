@@ -28,20 +28,20 @@ sprung mass에서 2개의 방정식을 도출 할 수 있는데 하나는 수직
 
 3. Controller 
 
-- Skyhook Controll logic : 노면상황에 따라 댐핑계수를 가변적으로 제어하여 마치 하늘위를 달리는 것과 같은 승차감을 제공
+- Skyhook Control logic : 노면상황에 따라 댐핑계수를 가변적으로 제어하여 마치 하늘위를 달리는 것과 같은 승차감을 제공
 
 <img src="https://github.com/junhyukch7/Semi-Active-Suspension/blob/master/image2/4.png" width="30%"> <img src="https://github.com/junhyukch7/Semi-Active-Suspension/blob/master/image2/skyhook%20logic.png" width="30%">
 
 스카이 훅은 sprung mass와 unsprung mass사이의 semi active damper를 설치하여 제어 할 수 있다. 스카이 훅의 전략은 댐핑 계수(damping coefficient)를 높게 또는 낮게 스위칭하여 sprung mass의 진동을 제어하는 것이다. 
 이 컨트롤 전략은 sprung mass의 속도(수직),그리고 unsprung mass와의 상대속도에 따라 댐핑계수를 변화시키는 것이다. Cmax와 Cmin은 각각 댐핑계수의 최대,최소이다. unsprung mass에 대한 sprung mass의 속도가 양수라면 Cmax에 비례하는 감쇠력을 요구하는 것을 의미한다. 그러므로 최대 댐핑계수가 적용되야하고, 그렇지 않은 상황(unsprung mass에 대한 sprung mass의 속도가 음수)에서는 비활성화된다.
 
-- Ground hook Controll logic : 타이어의 동적인 힘을 감소시켜 승차감을 개선하는 제어
+- Ground hook Control logic : 타이어의 동적인 힘을 감소시켜 승차감을 개선하는 제어 전략
 
 <img src="https://github.com/junhyukch7/Semi-Active-Suspension/blob/master/image2/5.png" width="35%"> <img src="https://github.com/junhyukch7/Semi-Active-Suspension/blob/master/image2/groundhook%20logic.png" width="35%">
 
 그라운드 훅의 컨트롤 전략은 스카이 훅과 매우 유사한데 시스템 구성도에서 볼 수 있듯이 기존의 skyhook의 sprung mass에 달려 있던 댐핑을 제거하고 unsprung mass에 추가한 것이다. 
 
-- Hybrid hook Controll logic
+- Hybrid hook Control logic
 
 <img src="https://github.com/junhyukch7/Semi-Active-Suspension/blob/master/image2/hybird%20hook%20plot.png" width="35%">
 
