@@ -20,7 +20,7 @@ Semi Active suspension Controller simulation in half car model
 sprung mass에서 2개의 방정식을 도출 할 수 있는데 하나는 수직방향 힘의 해석이고 다른 하나는 모멘트의 해석이다. 먼저 힘의 해석을 보면 위에서 구한 상수값의 분모를 소거시켜주기위해 스프링상수의 경우 수직변위의 차를 곱해주고 뎀퍼상수의 경우 상대속도의 차이를 곱해준다. 이 때 질량 중심점과 휠간의 거리에 의해 발생하는 변위는 전륜의 경우(+), 후륜의 경우(-)를 띄는데(좌변 이항시) 이는 요철을 만났을 때 전륜의 경우 힘이 z방향으로 가해질 것이고 힘의 평형의 법칙에 따라 후륜의 경우 z반대 방향으로 작용하기 때문에 lf(theta)와 lr(theta)의 방향은 반대가 된다. 
 두번 째는 모멘트(토크)에 관한 해석이다. 모멘트의 경우 힘과 거리의 곱으로 표현 할 수 있기 때문에 위와 같이 나타낼 수 있다. theta의 경우 아주 작은 크기이므로 sin(theta)를 theta로 근사화 한다.
 
-<img src="https://github.com/junhyukch7/Semi-Active-Suspension/blob/master/image2/3.jpg" width="60%">
+<img src="https://github.com/junhyukch7/Semi-Active-Suspension/blob/master/image2/wheels.PNG" width="60%">
 각각의 휠은 위와 같은 자유물체도에 의해 2개의 미분방정식을 도출할 수 있다. kfs와 cfs가 음수인 이유(좌변 이항시)는 unsprung mass가 고정되어 있다고 가정한 경우(강체) 전륜이 요철을 만나면 힘이 반대로 작용(-)하게 된다. 반대로 후륜의 경우 평형의 법칙에 의해(+)로 작용하게 된다.
 
 최종적으로 아래와 같은 4개의 미분방정식을 얻게 된다.
